@@ -6,7 +6,7 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 17:18:19 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/28 21:50:23 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 02:06:34 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,10 @@ int		ft_total_str_len(char *str)
 	return (ret + len);
 }
 
-char	*ft_addspace(char *str, int len)
+char	*ft_addspace(char *str, int len, int j)
 {
 	char	*input_str;
-	int		j;
 
-	j = 0;
 	input_str = (char *)malloc(sizeof(char) * len);
 	while (*str)
 	{
@@ -54,5 +52,24 @@ char	*ft_addspace(char *str, int len)
 		str++;
 		j++;
 	}
+	input_str[j] = '\0';
 	return (input_str);
+}
+
+int		precd(char x)
+{
+	if (x == '(')
+		return (0);
+	if (x == '+' || x == '-')
+		return (1);
+	if (x == '*' || x == '/' || x == '%')
+		return (2);
+	return (3);
+}
+
+int		isalpha(char c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

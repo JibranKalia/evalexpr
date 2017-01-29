@@ -6,7 +6,7 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 20:53:03 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/28 21:29:37 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 02:06:30 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,15 @@
 
 int		eval_expr(char *str)
 {
-	int	i; 
-
-	i = 0;
-	char** array;
-	array = ft_split_whitespaces(str);
+	int	len;
+	char* array;
 	
-	while (array[i] != '\0')	
-	{
-		printf("%s, ", array[i]);
-		i++;
-	}
+	len = ft_total_str_len(str);
+	array = ft_addspace(str, len, 0);
+
+	ft_infix(array, (len * 2));
+	printf("\n Original: %s\n", array);
+
 	return (0);
 
 

@@ -1,23 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   p_stackfunc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/28 16:57:39 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/28 22:43:47 by jkalia           ###   ########.fr       */
+/*   Created: 2017/01/29 00:23:15 by jkalia            #+#    #+#             */
+/*   Updated: 2017/01/29 00:28:54 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_list.h"
+#include "../includes/p_stack.h"
 
-int		main(int ac, char **av)
+int	 full(p_stack *st)
 {
-	if (ac > 1)
-	{
-		eval_expr(av[1]);
-		ft_putchar('\n');
-	}
+	if (st->top == BUFF - 1)
+		return (1);
+	return (0);
+}
+
+void	push(p_stack *st, int n)
+{
+	st->top = st->top + 1;
+	st->data[st->top] = n;
+}
+
+int	 pop(p_stack *st)
+{
+	int n;
+
+	n = st->data[st->top];
+	st->top = st->top - 1;
+	return (n);
+}
+
+int	 top(p_stack *st)
+{
+	return (st->data[st->top]);
+}
+
+int	 empty(p_stack *st)
+{
+	if(st->top == -1)
+		return (1);
 	return (0);
 }
