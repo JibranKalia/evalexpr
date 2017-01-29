@@ -6,7 +6,7 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 23:09:20 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/29 13:55:35 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 15:58:39 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ char *ft_infix(char *str, int len)
 	infix = (char*)malloc(sizeof(char) * len);
 	infix = str;	
 	infixtopost(infix, postfix, i, len);
-	printf("\nPost Form: %s\n", postfix);
 	free (infix);
 	return (postfix);
 }

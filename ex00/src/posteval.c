@@ -6,7 +6,7 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 02:19:48 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/29 13:59:23 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 15:59:18 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,24 +76,19 @@ int		ft_posteval(char *str, int len)
 		if (ch >= '0' && ch <= '9')	
 		{
 			eval_push(pt, (ch - '0'));
-			printf("int = %d  num_flag=%d\n", (ch -'0'), num_flag);
 			num_flag = 1;
 		}
 		else if (ch == ' ')
 		{
 			num_flag = 0;
-			printf("SPACE num_flag = %d\n", num_flag);
 		}
 		else
 		{	
-			printf("Operand: %c  num_flag=%d\n", ch, num_flag);
 			num_flag = 0;
 			op2 = pop(pt);
 			op1 = pop(pt);
 			eval_push (pt, math(ch, op1, op2));
-			printf("\nret = %d 	  num_flag = %d\n\n", math(ch, op2, op1), num_flag);
 		}
-		printf("TOP OF STACK = %d\n", print_top(pt));
 		i++;
 	}
 	return (pop(pt));

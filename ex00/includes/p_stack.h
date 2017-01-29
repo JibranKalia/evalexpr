@@ -6,7 +6,7 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 00:29:23 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/29 13:31:28 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 15:58:02 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <unistd.h> 
 # include <stdlib.h> 
-# include <stdio.h> // DONT FORGET TO REMOVE 
-
 
 typedef struct	stack
 {

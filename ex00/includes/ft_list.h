@@ -6,7 +6,7 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/24 17:01:08 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/29 14:01:25 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 15:57:53 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h> 
 # include <stdlib.h> 
-# include <stdio.h> // DONT FORGET TO REMOVE 
 
 void	ft_putchar(char c);
 void	ft_putnbr(int nb);
