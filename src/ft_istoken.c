@@ -6,7 +6,7 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 17:18:19 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/29 03:20:50 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 13:56:38 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		ft_total_str_len(char *str)
 		if (*str == ')' || *str == '(')
 			ret++;
 		str++;
+		ret++;
 	}
 	return (ret + len);
 }
@@ -66,11 +67,3 @@ int		precd(char x)
 		return (2);
 	return (3);
 }
-
-int		isalpha(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-

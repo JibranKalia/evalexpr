@@ -6,12 +6,11 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 20:53:03 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/29 04:05:05 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 14:01:05 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_list.h"
-#include <stdio.h> 
 
 int		eval_expr(char *str)
 {
@@ -23,11 +22,8 @@ int		eval_expr(char *str)
 	len = ft_total_str_len(str);
 	array = ft_addspace(str, len, 0);
 
-	orig = ft_infix(array, (len * 2));
-	ret = ft_posteval(orig);
-	printf("%d", ret);
-	
-	return (0);
-
-
+	len = ft_total_str_len(array) * 2;
+	orig = ft_infix(array, len);
+	ret = ft_posteval(orig, len);
+	return (ret);
 }

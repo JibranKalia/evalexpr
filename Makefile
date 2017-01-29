@@ -6,7 +6,7 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/28 16:52:07 by jkalia            #+#    #+#              #
-#    Updated: 2017/01/29 03:45:04 by jkalia           ###   ########.fr        #
+#    Updated: 2017/01/29 14:04:22 by jkalia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ fclean: clean
 	/bin/rm -rf $(NAME)
 
 test: all
-	./eval_expr "3 / 2 * 4 + 5"
+	./eval_expr "5 * (23 + 111 * 4) / 2"
+
+
 
 re: fclean test 

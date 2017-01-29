@@ -6,7 +6,7 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 16:57:39 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/28 22:43:47 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 14:00:16 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		main(int ac, char **av)
 {
 	if (ac > 1)
 	{
-		eval_expr(av[1]);
+		ft_putnbr(eval_expr(av[1]));
 		ft_putchar('\n');
 	}
 	return (0);

@@ -6,56 +6,53 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 23:09:20 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/29 04:05:07 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 13:55:35 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/p_stack.h"
 #include "../includes/ft_list.h"
 
-void	init_stack(p_stack *st)
+void	infixtopost(char *infix, char *postfix, int i, int len)
 {
-	st->top = -1;	
-}
+	p_stack *st;
+	char 	temp;
+	char 	token;
+	int		j;
 
-void	infixtopost(char *infix, char *postfix, int i, int j)
-{
-	p_stack st;
-	char temp;
-	char token;
-
-	init_stack(&st);
+	j = 0;
+	st = init_stack(len);
+	if (!st)
+		return ;
 	while (infix[i] != '\0')
 	{
 		token = infix[i];
-		if (isalpha(token) == 1)
-		{
+		if (token >= '0' && token <= '9')
 			postfix[j++] = token;
-		}
 		else if (token == '(')
-			push(&st, '(');
+			push(st, '(');
 		else if (token == ')')
-			while ((temp = pop(&st)) != '(')
+			while ((temp = pop(st)) != '(')
 			{
 				postfix[j++] = temp;
 				postfix[j++] = ' ';
 			}
 		else
 		{
-			while (precd(token) <= precd(top(&st)) && !empty(&st))
+			while (precd(token) <= precd(top(st)) && !empty(st))
 			{
-				temp = pop(&st);
+				temp = pop(st);
 				postfix[j++] = temp;
 				postfix[j++] = ' ';
 			}
-			push(&st, token);
+			push(st, token);
 		}
 		i++;
 	}
 
-	while(!empty(&st))
+	while(!empty(st))
 	{
-		temp = pop(&st);
+		temp = pop(st);
 		postfix[j++] = temp;
 	}
 	postfix[j] = '\0';
@@ -66,14 +63,12 @@ char *ft_infix(char *str, int len)
 	char	*postfix;
 	char	*infix;
 	int		i;
-	int		j;
 
 	i = 0;
-	j = 0;
 	postfix = (char*)malloc(sizeof(char) * len);
 	infix = (char*)malloc(sizeof(char) * len);
 	infix = str;	
-	infixtopost(infix, postfix, i, j);
+	infixtopost(infix, postfix, i, len);
 	printf("\nPost Form: %s\n", postfix);
 	free (infix);
 	return (postfix);
