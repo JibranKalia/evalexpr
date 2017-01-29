@@ -6,7 +6,7 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 23:09:20 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/29 02:04:44 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 04:05:07 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 void	init_stack(p_stack *st)
 {
-	st->top=-1;	
+	st->top = -1;	
 }
 
-void	infixtopostfix(char *infix, char *postfix, int i, int j)
+void	infixtopost(char *infix, char *postfix, int i, int j)
 {
 	p_stack st;
 	char temp;
@@ -61,8 +61,7 @@ void	infixtopostfix(char *infix, char *postfix, int i, int j)
 	postfix[j] = '\0';
 }
 
-
-int		ft_infix(char *str, int len)
+char *ft_infix(char *str, int len)
 {
 	char	*postfix;
 	char	*infix;
@@ -73,12 +72,9 @@ int		ft_infix(char *str, int len)
 	j = 0;
 	postfix = (char*)malloc(sizeof(char) * len);
 	infix = (char*)malloc(sizeof(char) * len);
-	
-	infix = str; 
-	
-	infixtopostfix(infix, postfix, i, j);
-	printf("Answer: %s", postfix);
-
-	return (0);
+	infix = str;	
+	infixtopost(infix, postfix, i, j);
+	printf("\nPost Form: %s\n", postfix);
+	free (infix);
+	return (postfix);
 }
-
