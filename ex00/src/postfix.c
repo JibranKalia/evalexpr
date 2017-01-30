@@ -6,16 +6,16 @@
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/28 23:09:20 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/29 15:58:39 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 19:07:33 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/p_stack.h"
+#include "../includes/t_stack.h"
 #include "../includes/ft_list.h"
 
 void	infixtopost(char *infix, char *postfix, int i, int len)
 {
-	p_stack *st;
+	t_stack *st;
 	char 	temp;
 	char 	token;
 	int		j;

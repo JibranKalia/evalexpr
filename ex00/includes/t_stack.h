@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                          :+:      :+:    :+:   */
+/*   t_stack.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/24 17:01:08 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/29 18:41:11 by jkalia           ###   ########.fr       */
+/*   Created: 2017/01/29 19:05:05 by jkalia            #+#    #+#             */
+/*   Updated: 2017/01/29 19:14:54 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIST_H
-# define FT_LIST_H
+#ifndef T_STACK_H
+# define T_STACK_H
 
 # include <unistd.h>
 # include <stdlib.h>
 
-void	ft_putchar(char c);
-void	ft_putnbr(int nb);
-void	ft_putstr(char *str);
-int		ft_strlen(char *str);
-char	**ft_split_whitespaces(char *str);
-int		eval_expr(char *str);
-char	*ft_addspace(char *str, int len, int j);
-int		ft_total_str_len(char *str);
-char	*ft_infix(char *str, int len);
-int		ft_posteval(char *str, int len);
-int		precd(char x);
+typedef struct	s_stack
+{
+	int		*data;
+	int		capacity;
+	int		top;
+}				t_stack;
+
+int				precd(char x);
+int				full(t_stack *st);
+void			push(t_stack *st, int nb);
+int				pop(t_stack *st);
+int				isalpha(char c);
+int				top(t_stack *st);
+int				empty(t_stack *st);
+void			infix_to_postfix(char infux[], char postfix[]);
+int				print_top(t_stack *st);
+t_stack			*init_stack(int len);
 #endif

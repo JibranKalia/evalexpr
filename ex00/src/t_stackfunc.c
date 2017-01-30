@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_stackfunc.c                                      :+:      :+:    :+:   */
+/*   t_stackfunc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkalia <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/29 00:23:15 by jkalia            #+#    #+#             */
-/*   Updated: 2017/01/29 13:50:33 by jkalia           ###   ########.fr       */
+/*   Updated: 2017/01/29 19:14:30 by jkalia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/p_stack.h"
+#include "../includes/t_stack.h"
 
-void	push(p_stack *st, int n)
+void	push(t_stack *st, int n)
 {
 	st->top = st->top + 1;
 	st->data[st->top] = n;
 }
 
-p_stack *init_stack(int capacity)
+t_stack *init_stack(int capacity)
 {
-    p_stack* st = (p_stack*)malloc(sizeof(p_stack));
+    t_stack* st = (t_stack*)malloc(sizeof(t_stack));
 
     if (!st)
         return NULL;
@@ -33,7 +33,7 @@ p_stack *init_stack(int capacity)
     return (st);
 }
 
-int	 pop(p_stack *st)
+int	 pop(t_stack *st)
 {
 	int n;
 	if (!empty(st))
@@ -46,19 +46,14 @@ int	 pop(p_stack *st)
 		return ('$');
 }
 
-int	 top(p_stack *st)
+int	 top(t_stack *st)
 {
 	return (st->data[st->top]);
 }
 
-int	 empty(p_stack *st)
+int	 empty(t_stack *st)
 {
 	if(st->top == -1)
 		return (1);
 	return (0);
-}
-
-int		print_top(p_stack *st)
-{
-	return (st->data[st->top]);
 }

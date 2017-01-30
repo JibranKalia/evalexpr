@@ -6,7 +6,7 @@
 #    By: jkalia <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/28 16:52:07 by jkalia            #+#    #+#              #
-#    Updated: 2017/01/29 14:04:22 by jkalia           ###   ########.fr        #
+#    Updated: 2017/01/29 19:13:36 by jkalia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SOURCES = src/*.c
 all : $(NAME)
 
 $(NAME):
-	gcc -Wall -Werror -Wall -c -I/$(HEADERS) $(SOURCES) 
+	gcc -Wall -Werror -Wall -I/$(HEADERS) -c $(SOURCES) 
 	gcc -Wall -Werror -Wall -I/$(HEADERS) *.o -o $(NAME)
 
 clean:
@@ -28,9 +28,9 @@ clean:
 fclean: clean
 	/bin/rm -rf $(NAME)
 
-test: all
-	./eval_expr "5 * (23 + 111 * 4) / 2"
-
+test: fclean all
+	./eval_expr "5 + 9" || echo 'Answer: 14'
+	./eval_expr "(5 + ((3 * 4) - 2))" || echo 'Answer: 15'
 
 
 re: fclean test 
